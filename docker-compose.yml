@@ -2,12 +2,13 @@ version: '3'
 services:
   openldap:
     container_name: openldap
-    image: example/openldap:latest
+    build: ./LDAP-Dockerized-CentOS  # NEU: Sagt Docker, er soll den Container aus diesem Ordner bauen
     ports:
       - "389:389"
+
   shibboleth-idp:
     container_name: shibboleth-idp
-    image: example/shibboleth-idp:latest
+    build: ./shibboleth-idp-dockerized # NEU: Sagt Docker, er soll den Container aus diesem Ordner bauen
     ports:
       - "443:4443"
       - "8443:8443"
@@ -19,9 +20,10 @@ services:
       - "JETTY_BACKCHANNEL_SSL_KEYSTORE_PASSWORD=abcde"
     links:
       - "openldap:openldap"
+
   shibboleth-sp:
     container_name: shibboleth-sp
-    image: example/shibboleth-sp:latest
+    build: ./shibboleth-sp-testapp   # NEU: Sagt Docker, er soll den Container aus diesem Ordner bauen
     ports:
       - "2080:80"
       - "2443:443"

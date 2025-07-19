@@ -22,6 +22,15 @@ ARG idp_version=3.4.7
 ARG idp_hash=28B235279EBE6A6644436A42D09A63E7F914E3E2D22330D48A1B8D75B5357ACB
 ARG dta_hash=2f547074b06952b94c35631398f36746820a7697
 
+# ===================================================================
+# ==== HIER IST DIE REPARATUR ====
+# Wir leiten die Paket-Manager (yum) auf die neuen Archiv-Server um,
+# da die alten CentOS 7 Server abgeschaltet wurden.
+RUN cd /etc/yum.repos.d/ && \
+    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+# ===================================================================
+
 # Sync latest updates and install dependencies
 RUN yum -y update \
     && yum -y install wget tar which \

@@ -2,6 +2,15 @@ FROM centos:centos7
 
 MAINTAINER John Gasper <jgasper@unicon.net>
 
+# ===================================================================
+# ==== HIER IST DIE REPARATUR ====
+# Wir leiten die Paket-Manager (yum) auf die neuen Archiv-Server um,
+# da die alten CentOS 7 Server abgeschaltet wurden.
+RUN cd /etc/yum.repos.d/ && \
+    sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+# ===================================================================
+
 RUN yum install -y epel-release \
     && yum update -y \
     && yum install -y 389-ds-base 389-adminutil \
