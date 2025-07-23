@@ -65,13 +65,13 @@
         </bean>
         -->
 
-        <bean parent="RelyingPartyByName" c:relyingPartyIds="https://sp.example.org:2443/Shibboleth.sso/Metadata">
+        <bean parent="RelyingPartyByName" c:relyingPartyIds="https://shib-demo.westeurope.cloudapp.azure.com:2443/Shibboleth.sso/Metadata">
             <property name="profileConfigurations">
                 <list>
                     <bean parent="SAML2.SSO" p:encryptAssertions="false" p:encryptNameIDs="false" />
                 </list>
             </property>
-        </bean>	
+        </bean>
 
         <bean parent="RelyingPartyByName" c:relyingPartyIds="https://example.my.salesforce.com">
             <property name="profileConfigurations">

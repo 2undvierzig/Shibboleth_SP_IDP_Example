@@ -1,0 +1,7 @@
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId default
+require valid-user
+
+# Attribute für Debugging anzeigen (nur für Tests)
+ShibUseHeaders On

@@ -20,8 +20,8 @@
     -->
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
-    <ApplicationDefaults entityID="https://sp.example.org:2443/Shibboleth.sso/Metadata"
-                         REMOTE_USER="eppn persistent-id targeted-id">
+    <ApplicationDefaults entityID="https://shib-demo.westeurope.cloudapp.azure.com:2443/Shibboleth.sso/Metadata"
+                     REMOTE_USER="eppn persistent-id targeted-id">
 
         <!--
         Controls session lifetimes, address checks, cookie handling, and the protocol handlers.
@@ -41,7 +41,7 @@
             (Set discoveryProtocol to "WAYF" for legacy Shibboleth WAYF support.)
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
-            <SSO entityID="https://idp.example.com/idp/shibboleth">
+            <SSO entityID="https://shib-demo.westeurope.cloudapp.azure.com/idp/shibboleth">
               SAML2 SAML1
             </SSO>
 
