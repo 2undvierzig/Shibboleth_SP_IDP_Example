@@ -347,4 +347,26 @@
         </dc:StartTLSTrustCredential>-->
     </resolver:DataConnector>
 
+    <!-- Zusätzliche Attribute für Anwendungsintegration -->
+    <resolver:AttributeDefinition id="displayname" xsi:type="ad:Simple">
+        <resolver:InputDataConnector ref="myLDAP" attributeNames="cn displayName"/>
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String"
+                      name="urn:mace:dir:attribute-def:displayName"
+                      friendlyName="displayname"/>
+    </resolver:AttributeDefinition>
+
+    <resolver:AttributeDefinition id="email" xsi:type="ad:Simple">
+        <resolver:InputDataConnector ref="myLDAP" attributeNames="mail"/>
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String"
+                      name="urn:mace:dir:attribute-def:mail"
+                      friendlyName="email"/>
+    </resolver:AttributeDefinition>
+
+    <resolver:AttributeDefinition id="employeetype" xsi:type="ad:Simple">
+        <resolver:InputDataConnector ref="myLDAP" attributeNames="employeeType"/>
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String"
+                      name="urn:mace:dir:attribute-def:employeeType"
+                      friendlyName="employeetype"/>
+    </resolver:AttributeDefinition>
+
 </resolver:AttributeResolver>
