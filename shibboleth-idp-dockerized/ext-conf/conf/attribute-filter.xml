@@ -42,4 +42,18 @@
 
     </AttributeFilterPolicy>
 
+    <AttributeFilterPolicy id="HAWKIPolicy">
+        <PolicyRequirementRule xsi:type="Requester"
+            value="https://shib-demo.westeurope.cloudapp.azure.com:2443/Shibboleth.sso/Metadata" />
+        <AttributeRule attributeID="displayname">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="email">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+        <AttributeRule attributeID="employeetype">
+            <PermitValueRule xsi:type="ANY" />
+        </AttributeRule>
+    </AttributeFilterPolicy>
+
 </AttributeFilterPolicyGroup>
